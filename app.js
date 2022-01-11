@@ -9,18 +9,27 @@ const FileStore = require('session-file-store')(session);
 
 const app = express();
 
+/*
 app.use((req, res, next) => {
   if (req.path !== '/' && !req.path.includes('.')) {
     res.set({
       'Access-Control-Allow-Credentials': true,
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
       'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
       'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
       'Content-Type': 'application/json; charset=utf-8',
     })
   }
   req.method === 'OPTIONS' ? res.status(204).end() : next()
-})
+})*/
+
+app.all('*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("Content-Type", "aapplication/json; charset=utf-8");
+  next();
+});
 
 // 日志文件输出
 const LOG_DIR = path.join(__dirname, 'log')
