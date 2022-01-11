@@ -1,0 +1,31 @@
+{
+    "routes": {
+        "music": {
+            "ncm": {
+                "/": {
+                    "active": true
+                }
+            },
+            "qq": {
+                "/": {
+                    "active": true
+                }
+            }
+        },
+        "/": {
+            "path": "index",
+            "active": true
+        },
+        "captcha": {
+            "get": {
+                "path": "get",
+                "active": true
+            }
+        },
+        "study": {
+            "gpa": {
+                "active": true
+            }
+        }
+    }
+}
