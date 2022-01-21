@@ -10,7 +10,7 @@ const LoginRefresh = require('./modules/login_refresh')
 const Url = require('./modules/url')
 
 router.get('/',async function (req, res, next) {
-    sendJSON(res, 0, '网易云音乐API正常运行中', {available: ['detail', 'check', 'search']});
+    return sendJSON(res, 0, '网易云音乐API正常运行中', {available: ['detail', 'check', 'search']});
     /*let data = await Login({
         username: '[username]',
         password: '[pwd]',

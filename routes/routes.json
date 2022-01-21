@@ -10,6 +10,9 @@
                 "/": {
                     "active": true
                 }
+            },
+            "/": {
+                "active": true
             }
         },
         "/": {
@@ -19,6 +22,10 @@
         "captcha": {
             "get": {
                 "path": "get",
+                "active": true
+            },
+            "check": {
+                "path": "check",
                 "active": true
             }
         },

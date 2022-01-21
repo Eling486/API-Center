@@ -4,7 +4,8 @@ const fs = require('fs')
 const path = require('path')
 var multer = require("multer");
 const crypto = require('crypto');
-const { sendJSON, encrypt } = require('../utils/index')
+const { sendJSON } = require('../utils/index')
+const { encrypt } = require('../../utils/index')
 
 const back_end_server = 'http://localhost:8000'
 

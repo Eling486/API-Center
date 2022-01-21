@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { createCaptcha, encrypt } = require('../../utils/index')
+const { createCaptcha } = require('../utils/index')
+const { encrypt } = require('../../utils')
 
 /**
  * 获取验证码
