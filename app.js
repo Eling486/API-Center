@@ -11,15 +11,13 @@ const app = express();
 
 
 app.use((req, res, next) => {
-  if (req.path !== '/') {
-    res.set({
-      'Access-Control-Allow-Credentials': true,
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
-      'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
-      'Content-Type': 'application/json; charset=utf-8',
-    })
-  }
+  res.set({
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'X-Requested-With,Content-Type',
+    'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+    'Content-Type': 'application/json; charset=utf-8',
+  })
   req.method === 'OPTIONS' ? res.status(204).end() : next()
 })
 /*
@@ -36,7 +34,7 @@ const LOG_DIR = path.join(__dirname, 'log')
 const CACHE_DIR = path.join(__dirname, 'cache')
 fs.existsSync(CACHE_DIR) || fs.mkdirSync(CACHE_DIR)
 
-if(!fs.existsSync(LOG_DIR)){
+if (!fs.existsSync(LOG_DIR)) {
   fs.mkdirSync(LOG_DIR)
   fs.mkdirSync(path.join(LOG_DIR, 'succeed'))
   fs.mkdirSync(path.join(LOG_DIR, 'error'))
@@ -56,9 +54,9 @@ var errorLogStream = FileStreamRotator.getStream({
   verbose: false
 })
 
-function isSucceed(status){
+function isSucceed(status) {
   let code = parseInt(status)
-  if(code >= 200 && code < 400){
+  if (code >= 200 && code < 400) {
     return true
   }
   return false
